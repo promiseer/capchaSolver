@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Captcha Solver Extension",
+  "version": "1.0",
+  "description": "An extension to solve CAPTCHA for the site",
+  "permissions": ["tabs", "webRequest", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://registration.ec.ap.gov.in/*", "https://registration.telangana.gov.in/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "side_panel": {
+    "default_path": "sidebar.html",
+    "default_title": "Open Sidebar"
+  }
+}

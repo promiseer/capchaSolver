@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Captcha Solver</title>
+  <style>
+    body {
+      width: 250px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3367d6;
+    }
+    .status {
+      margin-top: 10px;
+      padding: 5px;
+      border-radius: 4px;
+    }
+    .success {
+      background-color: #d6f5d6;
+      color: #2e7d32;
+    }
+    .error {
+      background-color: #ffdddd;
+      color: #c62828;
+    }
+  </style>
+</head>
+<body>
+  <h2>Captcha Solver</h2>
+  <p>Automatically solves captchas on registration.ec.ap.gov.in</p>
+  
+  <button id="solveCaptcha">Solve Captcha Now</button>
+  
+  <div id="status" class="status" style="display: none;"></div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
