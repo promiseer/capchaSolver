@@ -12,10 +12,11 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://registration.ec.ap.gov.in/*", "https://registration.telangana.gov.in/*"],
-      "js": ["content.js"]
+      "matches": ["*://*.gov.in/*"],
+      "js": ["tesseract.min.js", "content.js"]
     }
   ],
+
   "host_permissions": ["http://*/*", "https://*/*"],
   "side_panel": {
     "default_path": "sidebar.html",
