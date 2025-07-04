@@ -3,7 +3,7 @@
   "name": "Captcha Solver Extension",
   "version": "1.0",
   "description": "An extension to solve CAPTCHA for the site",
-  "permissions": ["tabs", "webRequest", "scripting"],
+  "permissions": ["tabs", "scripting", "sidePanel"],
   "background": {
     "service_worker": "background.js"
   },
@@ -17,9 +17,8 @@
     }
   ],
 
-  "host_permissions": ["http://*/*", "https://*/*"],
+  "host_permissions": ["*://*.gov.in/*"],
   "side_panel": {
-    "default_path": "sidebar.html",
-    "default_title": "Open Sidebar"
+    "default_path": "sidebar.html"
   }
 }

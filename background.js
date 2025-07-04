@@ -3,19 +3,6 @@ chrome.runtime.onInstalled.addListener(() => {
   console.log("Captcha Solver Extension installed!");
 });
 
-// Listen for tab updates to potentially trigger captcha solving
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.status === 'complete' && tab.url && tab.url.includes('registration.ec.ap.gov.in/ecSearch')) {
-    console.log("Target page loaded, injecting captcha solver");
-    
-    // Optional: You could inject script here if your content script needs manual injection
-    // chrome.scripting.executeScript({
-    //   target: { tabId },
-    //   files: ['content.js']
-    // });
-  }
-});
-
 // Listen for messages from content script
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === "captchaFilled") {
@@ -37,10 +24,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   return true; // Keep the message channel open for async response
 });
 
-// Optional: Handle browser action click
+// Optional: Handle browser action click to open the side panel
 chrome.action.onClicked.addListener((tab) => {
-  if (tab.url.includes('registration.ec.ap.gov.in/ecSearch')) {
-    // Send message to content script to manually trigger captcha solving
-    chrome.tabs.sendMessage(tab.id, { action: "solveCaptcha" });
-  }
+  chrome.sidePanel.open({ windowId: tab.windowId });
 });
